@@ -27,5 +27,23 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * 模型关联：用户 & 项目
+     * @return 一对多关联
+     */
+    public function projects()
+    {
+        return $this->hasMany('App\Models\Project');
+    }
 
+
+    /**
+     * 模型关联：用户 & 任务 （一个用户通过项目拥有多个任务）
+     *
+     * @return 一对多 远层
+     */
+    public function tasks()
+    {
+        return $this->hasManyThrough('App\Models\Task','App\Models\Project');
+    }
 }
