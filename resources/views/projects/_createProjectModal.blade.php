@@ -12,7 +12,7 @@
                 <h4 class="modal-title" id="myModalLabel">创建项目</h4>
             </div>
             <div class="modal-body">
-                {!! Form::open(['route'=>'projects.store','method'=>'POST','id'=>'createProject']) !!}
+                {!! Form::open(['route'=>'projects.store','method'=>'POST','files'=>'true','id'=>'createProject']) !!}
                     <div class="form-group">
                         {!! Form::label('name', '项目名称', ['class'=>'control-label']) !!}
                         {!! Form::text('name',null,['class'=>'form-control']) !!}
