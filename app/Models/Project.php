@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    // 可填充数据的字段
+    protected $fillable = ['name','thumbnail'];
+
     /**
      * 模型关联：项目 & 用户
      *

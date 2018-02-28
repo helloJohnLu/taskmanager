@@ -34,7 +34,12 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        return '创建项目，我被访问到了';
+        $request->user()->projects()->create([
+            'name' => $request->name,
+            'thumbnail' => 'kkk',
+        ]);
+
+        return 'OK';
     }
 
     /**
