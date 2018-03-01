@@ -20,7 +20,9 @@
                 </div>
 
                 {{-- 错误信息提示 --}}
-                @include('common.error')
+                <p>
+                    @include('common.error')
+                </p>
 
                 <div class="modal-footer">
                     {!! Form::submit('提交', ['class'=>'btn btn-primary']) !!}

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateProjectRequest extends FormRequest
+class EditProjectRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,6 @@ class CreateProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        // 暂时用不到 authorize 方法，所以返回 true
         return true;
     }
 

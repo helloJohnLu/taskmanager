@@ -43,3 +43,28 @@
     }
   }
 }
+
+
+.project-modal {
+  background-color: #fff;
+  border: 1px dotted #ddd;
+  border-radius: 4px;
+  display: block;
+  height: 240px;
+  line-height: 1.42857;
+  margin-bottom: 20px;
+  padding: 4px;
+  transition: border 0.2s ease-in-out 0s;
+
+  .modal-trigger {
+    display: block;
+    font-size: 2em;
+    margin: 28% auto;
+
+      .glyphicon {
+        margin-right: 0;
+      }
+  }
+
+}
+

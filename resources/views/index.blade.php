@@ -26,10 +26,6 @@
                             <a href="{{ route('projects.show', $project->id) }}">
                                 <h4 class="text-center">{{ $project->name }}</h4>
                             </a>
-                            <p>
-                                <a href="#" class="btn btn-primary" role="button">Button</a>
-                                <a href="#" class="btn btn-default" role="button">Button</a>
-                            </p>
                         </div>
                     </div>
 
@@ -38,8 +34,10 @@
                 </div>
             @endforeach
         @endif
-        <div class="col-md-8 col-md-offset-2">
-            @include('projects._createProjectModal')
+        <div class="row">
+            <div class="project-modal col-sm-6 col-md-3">
+                @include('projects._createProjectModal')
+            </div>
         </div>
     </div>
 </div>

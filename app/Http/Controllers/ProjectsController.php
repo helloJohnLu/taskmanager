@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProjectRequest;
+use App\Http\Requests\EditProjectRequest;
 use App\Models\Project;
 use App\Repositories\ProjectsRepository;
 use Illuminate\Http\Request;
@@ -81,7 +82,7 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Project $project, Request $request)
+    public function update(Project $project, EditProjectRequest $request)
     {
         $this->repository->updateProject($project, $request);
 
