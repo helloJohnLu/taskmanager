@@ -12,7 +12,11 @@
                             <li>
                                 @include('projects._deleteForm')
                             </li>
-                            <li><i class="glyphicon glyphicon-cog"></i></li>
+                            <li>
+                                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editModal-{{ $project->id }}">
+                                    <i class="glyphicon glyphicon-cog"></i>
+                                </button>
+                            </li>
                         </ul>
 
                         <a href="{{ route('projects.show', $project->id) }}">
@@ -22,9 +26,15 @@
                             <a href="{{ route('projects.show', $project->id) }}">
                                 <h4 class="text-center">{{ $project->name }}</h4>
                             </a>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            <p>
+                                <a href="#" class="btn btn-primary" role="button">Button</a>
+                                <a href="#" class="btn btn-default" role="button">Button</a>
+                            </p>
                         </div>
                     </div>
+
+                    @include('projects._editProjectModal')
+
                 </div>
             @endforeach
         @endif

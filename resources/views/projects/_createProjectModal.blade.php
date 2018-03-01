@@ -25,10 +25,11 @@
 
                     {{-- 错误信息提示 --}}
                     @include('common.error')
-            </div>
-            <div class="modal-footer">
-                {!! Form::submit('提交', ['class'=>'btn btn-primary','form'=>'createProject']) !!}
-                {!! Form::close() !!}
+
+                    <div class="modal-footer">
+                        {!! Form::submit('提交', ['class'=>'btn btn-primary','form'=>'createProject']) !!}
+                        {!! Form::close() !!}
+                    </div>
             </div>
         </div>
     </div>

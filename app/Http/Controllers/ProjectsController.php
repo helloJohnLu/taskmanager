@@ -81,9 +81,11 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Project $project, Request $request)
     {
-        //
+        $this->repository->updateProject($project, $request);
+
+        return redirect()->back();
     }
 
     /**
@@ -94,6 +96,8 @@ class ProjectsController extends Controller
      */
     public function destroy(Project $project)
     {
+        $this->repository->delThumbnail($project);
+
         $project->delete();
 
         return redirect()->back();
