@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProjectRequest;
+use App\Models\Project;
 use App\Repositories\ProjectsRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProjectsController extends Controller
@@ -47,7 +49,7 @@ class ProjectsController extends Controller
     {
         $this->repository->newProject($request);
 
-        return '创建项目成功！';
+        return redirect()->back();
     }
 
     /**
@@ -58,7 +60,7 @@ class ProjectsController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -90,8 +92,10 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->back();
     }
 }

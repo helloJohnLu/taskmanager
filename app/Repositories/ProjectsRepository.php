@@ -44,7 +44,7 @@ class ProjectsRepository
             // 图片存储的路径
             $path = public_path() . '/thumbnails/' . $name;
             // 写入
-            Image::make($file)->resize(200,120)->save($path);
+            Image::make($file)->resize(262,200)->save($path);
 
             return $name;
         }

@@ -1,9 +1,7 @@
 <?php
 
-Route::get('/', 'HomeController@index')->name('index');
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@show')->name('home');
+Route::get('/', 'HomeController@show')->name('home');
 
 Route::resource('projects', 'ProjectsController');

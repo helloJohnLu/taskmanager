@@ -8350,3 +8350,47 @@ button.close {
   }
 }
 
+.thumbnail {
+  position: relative;
+  padding: 0;
+}
+
+.thumbnail .icon-bar {
+  width: 100%;
+  background-color: #dff0d8;
+  opacity: 0.7;
+  list-style: none;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+}
+
+.thumbnail li {
+  float: right;
+  margin-right: 3px;
+}
+
+.thumbnail li .btn {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.thumbnail li .glyphicon {
+  color: red;
+}
+
+.thumbnail .caption {
+  padding: 0;
+}
+
+.thumbnail .caption a {
+  color: #333;
+}
+
+.thumbnail .caption a:hover {
+  color: orangered;
+  text-decoration: none;
+}
+

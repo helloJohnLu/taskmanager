@@ -17,24 +17,15 @@ class HomeController extends Controller
     }
 
     /**
-     * 首页
-     *
-     * @return index
-     */
-    public function index()
-    {
-        return view('index');
-    }
-
-
-
-    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
     public function show()
     {
-        return view('index');
+        // 获取当前用户已有项目
+        $projects = \Auth::user()->projects()->get();
+
+        return view('index', compact('projects'));
     }
 }
