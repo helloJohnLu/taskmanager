@@ -22,6 +22,9 @@
                         {!! Form::label('thumbnail', '缩略图', ['class'=>'control-label']) !!}
                         {!! Form::file('thumbnail') !!}
                     </div>
+
+                    {{-- 错误信息提示 --}}
+                    @include('common.error')
             </div>
             <div class="modal-footer">
                 {!! Form::submit('提交', ['class'=>'btn btn-primary','form'=>'createProject']) !!}

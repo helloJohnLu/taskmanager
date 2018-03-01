@@ -2,10 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateProjectRequest;
+use App\Repositories\ProjectsRepository;
 use Illuminate\Http\Request;
+
 
 class ProjectsController extends Controller
 {
+    protected $repository;
+
+    // 注入
+    public function __construct(ProjectsRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -32,14 +43,11 @@ class ProjectsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProjectRequest $request)
     {
-        $request->user()->projects()->create([
-            'name' => $request->name,
-            'thumbnail' => 'kkk',
-        ]);
+        $this->repository->newProject($request);
 
-        return 'OK';
+        return '创建项目成功！';
     }
 
     /**
