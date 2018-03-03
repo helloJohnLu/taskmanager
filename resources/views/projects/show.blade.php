@@ -22,6 +22,7 @@
                         <tr>
                             <td>{{ $task->title }}</td>
                             <td>@include('tasks._doneForm')</td>
+                            <td>@include('tasks._editForm')</td>
                         </tr>
                     @endforeach
                 </table>

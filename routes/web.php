@@ -9,4 +9,4 @@ Route::resource('projects', 'ProjectsController');
 
 // 任务控制器
 Route::resource('tasks', 'TasksController');
-Route::put('/tasks/{task}', 'TasksController@change_completed')->name('tasks.change');
+Route::put('/tasks/{task}/complete', 'TasksController@change_completed')->name('tasks.change');

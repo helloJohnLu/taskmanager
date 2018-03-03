@@ -72,9 +72,13 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Task $task, Request $request)
     {
-        //
+        $task->title = $request->title;
+        $task->project_id = $request->projectList;
+        $task->update();
+
+        return redirect()->back();
     }
 
     /**

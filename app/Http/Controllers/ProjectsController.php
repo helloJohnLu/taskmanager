@@ -62,8 +62,10 @@ class ProjectsController extends Controller
         // 获取项目下的任务
         $todo = $project->tasks()->where('completed', 0)->get();
         $done = $project->tasks()->where('completed', 1)->get();
+        // 获取项目信息，返回数组，name 是值，id 为键
+        $projects = $project->pluck('name','id');
 
-        return view('projects.show',compact('project','todo', 'done'));
+        return view('projects.show',compact('project','todo', 'done', 'projects'));
     }
 
     /**
