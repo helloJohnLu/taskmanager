@@ -34,10 +34,8 @@
                 </div>
             @endforeach
         @endif
-        <div class="row">
-            <div class="project-modal col-sm-6 col-md-3">
-                @include('projects._createProjectModal')
-            </div>
+        <div class="col-sm-6 col-md-3 project-modal">
+            @include('projects._createProjectModal')
         </div>
     </div>
 </div>

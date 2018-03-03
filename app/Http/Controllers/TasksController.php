@@ -2,22 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateProjectRequest;
-use App\Http\Requests\EditProjectRequest;
-use App\Models\Project;
-use App\Repositories\ProjectsRepository;
+use App\Models\Task;
+use Illuminate\Http\Request;
 
-
-class ProjectsController extends Controller
+class TasksController extends Controller
 {
-    protected $repository;
-
-    // 注入
-    public function __construct(ProjectsRepository $repository)
-    {
-        $this->repository = $repository;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -39,14 +28,17 @@ class ProjectsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 创建项目任务
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateProjectRequest $request)
+    public function store(Request $request)
     {
-        $this->repository->newProject($request);
+        Task::create([
+            'title'         =>  $request->title,
+            'project_id'    =>  $request->project_id,
+        ]);
 
         return redirect()->back();
     }
@@ -57,13 +49,9 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show($id)
     {
-        // 获取项目下的任务
-        $todo = $project->tasks()->where('completed', 0)->get();
-        $done = $project->tasks()->where('completed', 1)->get();
-
-        return view('projects.show',compact('project','todo', 'done'));
+        //
     }
 
     /**
@@ -84,9 +72,20 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Project $project, EditProjectRequest $request)
+    public function update(Request $request, $id)
     {
-        $this->repository->updateProject($project, $request);
+        //
+    }
+
+    /**
+     * @param Task $task
+     * @return
+     */
+    public function change_completed(Task $task)
+    {
+        $task->completed === 0 ? $task->completed = 1 : $task->completed = 0;
+
+        $task->save();
 
         return redirect()->back();
     }
@@ -97,12 +96,8 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $project)
+    public function destroy($id)
     {
-        $this->repository->delThumbnail($project);
-
-        $project->delete();
-
-        return redirect()->back();
+        //
     }
 }

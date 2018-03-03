@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+    // 可写入字段
+    protected $fillable = ['title','project_id','completed'];
+
     /**
      * 模型关联：任务 & 项目
      *
