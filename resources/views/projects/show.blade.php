@@ -23,6 +23,7 @@
                             <td>{{ $task->title }}</td>
                             <td>@include('tasks._doneForm')</td>
                             <td>@include('tasks._editForm')</td>
+                            <td>@include('tasks._deleteForm')</td>
                         </tr>
                     @endforeach
                 </table>

@@ -95,13 +95,15 @@ class TasksController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 删除任务
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Task $task
+     * @return 上一页
      */
-    public function destroy($id)
+    public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        return redirect()->back();
     }
 }
