@@ -22,7 +22,7 @@
 
                     <div class="form-group">
                         {!! Form::label('projectList', '所属项目', ['class'=>'control-label']) !!}
-                        {!! Form::select('projectList', $projects, $project->id, ['class'=>'form-control']) !!}
+                        {!! Form::select('projectList', $projects, null, ['class'=>'form-control']) !!}
                     </div>
 
                     @if($errors->has('title'))

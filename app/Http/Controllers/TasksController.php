@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -14,19 +15,15 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Project $project)
     {
-        //
-    }
+        $todo = \Auth::user()->tasks()->where('completed', 0)->paginate(2);
+        $done = \Auth::user()->tasks()->where('completed', 1)->paginate(2);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        // 获取项目信息，返回数组，name 是值，id 为键
+        $projects = $project->pluck('name','id');
+
+        return view('tasks.index',compact('todo','done','projects'));
     }
 
     /**
@@ -43,28 +40,6 @@ class TasksController extends Controller
         ]);
 
         return redirect()->back();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**

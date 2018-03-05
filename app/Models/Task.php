@@ -18,4 +18,11 @@ class Task extends Model
     {
         return $this->belongsTo('App\Models\Project');
     }
+
+
+    // 返回 projectList 属性
+    public function getProjectListAttribute()
+    {
+        return $this->project->id;
+    }
 }

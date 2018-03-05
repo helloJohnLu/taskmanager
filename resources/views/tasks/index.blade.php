@@ -46,8 +46,5 @@
                 </div>
             </div>
         </div>
-
-        @include('tasks._createForm')
-
     </div>
 @stop
