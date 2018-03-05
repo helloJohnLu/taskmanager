@@ -36,7 +36,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a class="navbar-brand" href="{{ route('tasks.index') }}">所有任务</a></li>
+                        @if(Auth::user())
+                            <li><a class="navbar-brand" href="{{ route('tasks.index') }}">所有任务</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
