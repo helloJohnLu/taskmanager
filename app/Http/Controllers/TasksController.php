@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTaskRequest;
+use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -33,10 +35,10 @@ class TasksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTaskRequest $request)
     {
         Task::create([
-            'title'         =>  $request->title,
+            'title'         =>  $request->name,
             'project_id'    =>  $request->project_id,
         ]);
 
@@ -72,7 +74,7 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Task $task, Request $request)
+    public function update(Task $task, UpdateTaskRequest $request)
     {
         $task->title = $request->title;
         $task->project_id = $request->projectList;

@@ -25,6 +25,14 @@
                         {!! Form::select('projectList', $projects, $project->id, ['class'=>'form-control']) !!}
                     </div>
 
+                    @if($errors->has('title'))
+                        <ul class="alert alert-danger">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+
                     <div class="text-right">
                         {!! Form::submit('提交', ['class'=>'btn btn-primary']) !!}
                     </div>
