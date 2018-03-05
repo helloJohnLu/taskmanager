@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container tasks-tabs">
 
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
@@ -20,10 +20,10 @@
                 <table class="table table-hover">
                     @foreach($todo as $task)
                         <tr>
-                            <td>{{ $task->title }}</td>
-                            <td>@include('tasks._doneForm')</td>
-                            <td>@include('tasks._editForm')</td>
-                            <td>@include('tasks._deleteForm')</td>
+                            <td class="first-cell">{{ $task->title }}</td>
+                            <td class="icon-cell">@include('tasks._doneForm')</td>
+                            <td class="icon-cell">@include('tasks._editForm')</td>
+                            <td class="icon-cell">@include('tasks._deleteForm')</td>
                         </tr>
                     @endforeach
                 </table>
@@ -42,5 +42,6 @@
         </div>
 
         @include('tasks._createForm')
+
     </div>
 @stop

@@ -8416,3 +8416,13 @@ button.close {
   margin-right: 0;
 }
 
+/* 任务列表图标 */
+
+.tasks-tabs .first-cell {
+  padding-left: 4em;
+}
+
+.tasks-tabs .icon-cell {
+  width: 4em;
+}
+

@@ -64,6 +64,15 @@
         margin-right: 0;
       }
   }
-
 }
 
+
+/* 任务列表图标 */
+.tasks-tabs {
+  .first-cell {
+    padding-left: 4em;
+  }
+  .icon-cell {
+    width: 4em;
+  }
+}
